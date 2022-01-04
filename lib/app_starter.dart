@@ -18,6 +18,9 @@ Store<AppState, AppStateBuilder, AppActions>? get store => _store;
 /// Метод запуска инициализаци хранилища данных.
 startApp() async {
   AppState? _data = await injector.get<CacheDataService>().getData();
+  if (_data != null) {
+    _data = _data.rebuild((state) => state..navigationState = NavigationState((builder) => builder).toBuilder());
+  }
 
   _store = Store(
     reducers,
