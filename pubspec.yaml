@@ -1,0 +1,66 @@
+name: azorin_test
+description: Презентационный проект отражающий навыки работы и понимание Flutter
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+  built_value: 8.0.6 # иммутабельные классы и кодогенерация
+  built_collection: 5.0.0 # иммутабельные списки и кодогенерация
+
+  provider: ^5.0.0 # для архитектуры
+  rxdart: ^0.26.0 # для архитектуры
+
+  injectable: ^1.4.1 # DI генератор
+  get_it: ^7.0.0 # DI
+
+  uuid: ^3.0.5 # для изолятов и потоков
+
+  #Forks for migrate_to_null_safety
+  built_redux:
+    git:
+      url: https://github.com/Sunderik/built_redux.git
+      ref: master
+  flutter_built_redux:
+    git:
+      url: https://github.com/Sunderik/flutter_built_redux.git
+      ref: master
+
+  logger: ^1.0.0 # оформление и  данных
+
+  shared_preferences: ^2.0.4 # кеширование данных
+
+  http: ^0.13.3 # http requests
+
+  url_launcher: # для открытия програм по умолчанию
+  flutter_map: ^0.13.1 # для использования карты
+  carousel_slider: ^4.0.0 # слайдер для виджетов
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  mockito: ^5.0.9
+  build_runner: ^2.1.1
+  built_value_generator: ^8.0.6
+  pedantic: ^1.9.2
+  injectable_generator: ^1.4.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
