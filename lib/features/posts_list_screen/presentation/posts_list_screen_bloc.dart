@@ -11,7 +11,7 @@ class PostsListScreenBloc extends BaseBloc {
 
   PostsListScreenBloc(this.userId);
 
-  /// Возвращает коллекцию исполнителей.
+  ///
   BuiltList<Post>? get posts =>
       store?.state.usersState.users.firstWhere((user) => user.id == userId).posts?.toBuiltList();
 
@@ -23,7 +23,6 @@ class PostsListScreenBloc extends BaseBloc {
 
   /// Подписка на значение поля [PostsListScreenState.usersListScreenStatus].
   StreamSubscription<ScreenStatusEnum?>? _postsListScreenStatusSubscription;
-
 
   @override
   void init() {
@@ -50,18 +49,19 @@ class PostsListScreenBloc extends BaseBloc {
     _postsListScreenStatusSubscription?.cancel();
   }
 
-
-  /// Переход на окно "Информацию о пользователе".
+  /// Переход на окно "Информацию о посте".
   ///
   /// [post] - объект поста, на информацию о котором выполяется переход.
   void openPostInfo(Post post) {
-    // logger.i('Opening UserDetails for user with id:${user.id}');
-    // final bundle = {'userId': user.id};
-    // actions.navigation.routeTo(
-    //   AppRoute((builder) => builder
-    //     ..route = Routes.userDetails
-    //     ..bundle = bundle),
-    // );
+    logger.i('Opening PostDetails for post with id:${post.id}');
+    final bundle = {'postId': post.id};
+    actions.navigation.routeTo(
+      AppRoute((builder) => builder
+        ..route = Routes.postDetails
+        ..navigationType = NavigationType.push
+        ..transitionType = TransitionType.rightSlide
+        ..bundle = bundle),
+    );
   }
 
   /// Отправить в контроллер команды обновленых участников проекта.

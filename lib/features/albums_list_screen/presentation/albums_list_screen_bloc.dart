@@ -11,7 +11,7 @@ class AlbumsListScreenBloc extends BaseBloc {
 
   AlbumsListScreenBloc(this.userId);
 
-  /// Возвращает коллекцию исполнителей.
+  ///
   BuiltList<Album>? get albums =>
       store?.state.usersState.users.firstWhere((user) => user.id == userId).albums?.toBuiltList();
 

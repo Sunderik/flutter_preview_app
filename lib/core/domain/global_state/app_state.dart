@@ -5,6 +5,7 @@ import 'package:azorin_test/core/services/cache_data_sevice.dart';
 
 import 'package:azorin_test/features/navigation/navigation.dart';
 import 'package:azorin_test/features/albums_list_screen/domain/albums_list_state.dart';
+import 'package:azorin_test/features/post_details/domain/post_details_state.dart';
 import 'package:azorin_test/features/posts_list_screen/domain/posts_list_state.dart';
 import 'package:azorin_test/features/users_list_screen/domain/users_list_state.dart';
 import 'package:azorin_test/injection.dart';
@@ -25,7 +26,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
       ..usersState = UsersState().toBuilder()
       ..usersListState = UsersListScreenState().toBuilder()
       ..postsListState = PostsListScreenState().toBuilder()
-      ..userDetailsState = UserDetailsState().toBuilder());
+      ..userDetailsState = UserDetailsState().toBuilder()
+      ..postDetailsState = PostDetailsState().toBuilder());
   }
 
   /// Свойство темы приложения.
@@ -48,6 +50,9 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   /// Сейт окна информации о пользователе.
   UserDetailsState get userDetailsState;
+
+  /// Сейт окна информации о посте.
+  PostDetailsState get postDetailsState;
 
   ///
   Map<String, dynamic>? toJson() {

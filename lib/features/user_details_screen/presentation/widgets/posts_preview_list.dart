@@ -28,13 +28,15 @@ class PostPreviewList extends StatelessWidget {
             );
           } else if (posts.isNotEmpty) {
             posts = posts.getRange(0, 3).toList();
-            return Card(
-              child: Column(
-                children: [
-                  _getCardHeader(bloc),
-                  const Divider(indent: 8, endIndent: 8),
-                  _getCardContent(posts),
-                ],
+            return GestureDetector(
+              child: Card(
+                child: Column(
+                  children: [
+                    _getCardHeader(bloc),
+                    const Divider(indent: 8, endIndent: 8),
+                    _getCardContent(posts, bloc),
+                  ],
+                ),
               ),
             );
           }
@@ -68,12 +70,12 @@ class PostPreviewList extends StatelessWidget {
   }
 
   ///
-  Widget _getCardContent(List<Post> posts) {
+  Widget _getCardContent(List<Post> posts, UserDetailsBloc bloc) {
     List<Widget> widgets = posts.map((post) {
       return Builder(
         builder: (BuildContext context) {
           return ListTile(
-            onTap: () => {},
+            onTap: () => bloc.openPostInfo(post),
             title: Text(post.title!),
             subtitle: Text(
               post.body!,

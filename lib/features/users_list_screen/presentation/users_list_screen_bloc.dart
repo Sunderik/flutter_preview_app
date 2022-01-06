@@ -11,7 +11,7 @@ import 'package:azorin_test/features/navigation/navigation.dart';
 class UsersListScreenBloc extends BaseBloc {
   UsersListScreenBloc();
 
-  /// Возвращает коллекцию исполнителей.
+  /// Возвращает коллекцию пользователей.
   BuiltList<User>? get users => store?.state.usersState.users.toBuiltList();
 
   /// Контроллер статуса экрана.
@@ -33,12 +33,6 @@ class UsersListScreenBloc extends BaseBloc {
     usersController = StreamController<BuiltList<User>>.broadcast();
 
     usersListScreenStatusController = StreamController<ScreenStatusEnum>();
-
-    // Получаем количество пользователей.
-    final _usersCount = users?.length ?? 0;
-
-    // Обновляем список исполнителей, если количество исполнителей меньше 2.
-    if (_usersCount < 2) refreshUsersList();
 
     _usersSubscription = store!.nextSubstate((AppState state) => state.usersState.users).listen((_) {
       _sinkUsersList();
@@ -81,7 +75,7 @@ class UsersListScreenBloc extends BaseBloc {
 
   /// Переход на окно "Информацию о пользователе".
   ///
-  /// [user] - объект исполнителя, на информацию о котором выполяется переход.
+  /// [user] - объект пользователя, на информацию о котором выполяется переход.
   void openUserInfo(User user) {
     logger.i('Opening UserDetails for user with id:${user.id}');
     final bundle = {'userId': user.id};

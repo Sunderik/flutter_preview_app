@@ -55,7 +55,7 @@ class UserDetailsBloc extends BaseBloc {
   /// Подписка на значения поля UsersState.users[userId].albums.
   late StreamSubscription<BuiltList<Album>?>? _albumsSubscription;
 
-  /// Возвращает информацию об исполнителе (сотруднике).
+  ///
   User? getUserDetails() {
     return user;
   }
@@ -154,6 +154,21 @@ class UserDetailsBloc extends BaseBloc {
     actions.navigation.routeTo(
       AppRoute((builder) => builder
         ..route = Routes.postsList
+        ..navigationType = NavigationType.push
+        ..transitionType = TransitionType.rightSlide
+        ..bundle = bundle),
+    );
+  }
+
+  /// Переход на окно "Информацию о посте".
+  ///
+  /// [post] - объект поста, на информацию о котором выполяется переход.
+  void openPostInfo(Post post) {
+    logger.i('Opening PostDetails for post with id:${post.id}');
+    final bundle = {'postId': post.id};
+    actions.navigation.routeTo(
+      AppRoute((builder) => builder
+        ..route = Routes.postDetails
         ..navigationType = NavigationType.push
         ..transitionType = TransitionType.rightSlide
         ..bundle = bundle),
