@@ -1,6 +1,7 @@
 import 'package:azorin_test/core/domain/domain.dart';
 import 'package:azorin_test/core/library/logger/logger.dart';
 import 'package:azorin_test/core/services/cache_data_sevice.dart';
+import 'package:azorin_test/features/post_details/domain/post_details_state.dart';
 import 'package:azorin_test/injection.dart';
 
 import 'package:built_redux/built_redux.dart';
@@ -25,7 +26,8 @@ void _clearAppState(AppState state, Action<void> action, AppStateBuilder builder
     ..usersListState = UsersListScreenState().toBuilder()
     ..postsListState = PostsListScreenState().toBuilder()
     ..albumsListState = AlbumsListScreenState().toBuilder()
-    ..userDetailsState = UserDetailsState().toBuilder();
+    ..userDetailsState = UserDetailsState().toBuilder()
+    ..postDetailsState = PostDetailsState().toBuilder();
 }
 
 /// Оработчик действия смены темы приложения
@@ -35,5 +37,5 @@ void _setTheme(AppState state, Action<void> action, AppStateBuilder builder) {
 
 /// Оработчик действия сохранения состояния приложения в кэш.
 Future<void> _saveState(AppState state, Action<void> action, AppStateBuilder builder) async {
-  await injector.get<CacheDataService>().setData();
+  injector.get<CacheDataService>().setData();
 }

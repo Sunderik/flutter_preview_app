@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'screen_status_enum.g.dart';
 
@@ -24,4 +25,7 @@ class ScreenStatusEnum extends EnumClass {
 
   /// Получение значения перечисления статусов экрана по названию [name].
   static ScreenStatusEnum valueOf(String name) => _$screenStatusEnumValueOf(name);
+
+  /// Сериализатор класса [AppTheme].
+  static Serializer<ScreenStatusEnum> get serializer => _$screenStatusEnumSerializer;
 }

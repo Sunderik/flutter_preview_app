@@ -1,3 +1,5 @@
+import 'package:azorin_test/core/domain/models/comment.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:azorin_test/core/domain/serializers/serializers.dart';
@@ -17,6 +19,8 @@ abstract class Post implements Built<Post, PostBuilder> {
 
   /// Текст поста.
   String? get body;
+
+  BuiltList<Comment>? get comments;
 
   Post._();
 

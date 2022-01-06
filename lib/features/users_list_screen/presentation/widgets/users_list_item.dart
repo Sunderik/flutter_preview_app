@@ -2,7 +2,7 @@ import 'package:azorin_test/core/core.dart';
 import 'package:flutter/material.dart';
 ///
 class UsersListItem extends StatelessWidget {
-  /// Объект исполнителя.
+  ///
   final User user;
 
   /// Действие по нажатию.

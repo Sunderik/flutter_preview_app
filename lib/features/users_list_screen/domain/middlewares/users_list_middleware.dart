@@ -10,12 +10,12 @@ MiddlewareBuilder<AppState, AppStateBuilder, AppActions> usersListMiddleware() {
     ..add(UsersListScreenActionsNames.setUsersResponse, _setUsersResponse);
 }
 
-/// Запрос поулчения исполнителей.
+///
 void _usersRequest(MiddlewareApi<AppState, AppStateBuilder, AppActions> api, next, Action<void> action) async {
   next(action);
 }
 
-/// Ответ на запрос получения исполнителей.
+///
 void _setUsersResponse(MiddlewareApi<AppState, AppStateBuilder, AppActions> api, next, Action<UsersResponse> action) {
   next(action);
 

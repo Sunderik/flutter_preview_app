@@ -13,7 +13,7 @@ MiddlewareBuilder<AppState, AppStateBuilder, AppActions> userDetailsMiddleware()
     ..add(UserDetailsActionsNames.setUserAlbumsResponse, _setUserAlbumsResponse);
 }
 
-/// Запрос на получение информации об исполнителе.
+///
 void _userPostsRequest(MiddlewareApi<AppState, AppStateBuilder, AppActions> api, ActionHandler next,
     Action<UserPostsRequest> action) async {
   next(action);

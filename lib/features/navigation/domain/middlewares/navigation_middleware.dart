@@ -3,6 +3,7 @@ import 'package:azorin_test/core/library/transitions/transitions.dart';
 import 'package:azorin_test/features/albums_list_screen/presentation/albums_list_screen.dart';
 import 'package:azorin_test/features/navigation/data/navigation_type.dart';
 import 'package:azorin_test/features/navigation/data/transition_type.dart';
+import 'package:azorin_test/features/post_details/presentation/post_details_screen.dart';
 import 'package:azorin_test/features/posts_list_screen/presentation/posts_list_screen.dart';
 import 'package:azorin_test/features/user_details_screen/presentation/user_details_screen.dart';
 import 'package:azorin_test/features/user_details_screen/presentation/widgets/map_view.dart';
@@ -57,6 +58,10 @@ dynamic _getMaterialPageRoute(MiddlewareApi<AppState, AppStateBuilder, AppAction
     case Routes.userDetails:
       final int userId = (payload.bundle as Map<String, dynamic>)['userId']!;
       _nextPage = UserDetails(userId: userId);
+      break;
+    case Routes.postDetails:
+      final int postId = (payload.bundle as Map<String, dynamic>)['postId']!;
+      _nextPage = PostDetails(postId: postId);
       break;
     case Routes.postsList:
       final int userId = (payload.bundle as Map<String, dynamic>)['userId']!;
