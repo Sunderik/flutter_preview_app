@@ -27,7 +27,8 @@ void _clearAppState(AppState state, Action<void> action, AppStateBuilder builder
     ..postsListState = PostsListScreenState().toBuilder()
     ..albumsListState = AlbumsListScreenState().toBuilder()
     ..userDetailsState = UserDetailsState().toBuilder()
-    ..postDetailsState = PostDetailsState().toBuilder();
+    ..postDetailsState = PostDetailsState().toBuilder()
+    ..albumDetailsState = AlbumDetailsState().toBuilder();
 }
 
 /// Оработчик действия смены темы приложения

@@ -32,7 +32,7 @@ class AlbumsPreviewList extends StatelessWidget {
                 children: [
                   _getCardHeader(bloc),
                   const Divider(indent: 8, endIndent: 8),
-                  _getCardContent(albums),
+                  _getCardContent(albums, bloc),
                 ],
               ),
             );
@@ -67,12 +67,12 @@ class AlbumsPreviewList extends StatelessWidget {
   }
 
   ///
-  Widget _getCardContent(List<Album> albums) {
+  Widget _getCardContent(List<Album> albums, UserDetailsBloc bloc) {
     List<Widget> widgets = albums.map((album) {
       return Builder(
         builder: (BuildContext context) {
           return ListTile(
-            onTap: () => {},
+            onTap: () => bloc.openAlbumInfo(album),
             leading: Image.asset(
               'assets/images/album_miniature.png',
               fit: BoxFit.cover,

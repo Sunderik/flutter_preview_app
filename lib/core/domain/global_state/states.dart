@@ -7,4 +7,6 @@ export 'package:azorin_test/features/navigation/navigation.dart';
 export 'package:azorin_test/features/users_list_screen/domain/users_list_state.dart';
 export 'package:azorin_test/features/user_details_screen/domain/user_details_state.dart';
 export 'package:azorin_test/features/posts_list_screen/domain/posts_list_state.dart';
+export 'package:azorin_test/features/post_details/domain/post_details_state.dart';
 export 'package:azorin_test/features/albums_list_screen/domain/albums_list_state.dart';
+export 'package:azorin_test/features/album_details/domain/album_details_state.dart';

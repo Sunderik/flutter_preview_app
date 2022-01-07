@@ -75,7 +75,7 @@ void _setAddCommentResponse(MiddlewareApi<AppState, AppStateBuilder, AppActions>
       {
         Post? post = api.state.postDetailsState.post;
         //переписываем полльзователя добавляя ему посты в стейте окна пользователя
-        Post? _postUpd = post?.rebuild((b) => b..comments.add(addCommentResponse.comment!));
+        Post? _postUpd = post?.rebuild((b) => b..comments.insert(0, addCommentResponse.comment!));
 
         User? user = api.state.usersState.users.firstWhere((user) => user.id == _postUpd!.userId);
         List<Post> _posts = user.posts!.toList();

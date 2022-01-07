@@ -188,6 +188,21 @@ class UserDetailsBloc extends BaseBloc {
     );
   }
 
+  /// Переход на окно " ".
+  ///
+  /// [album] - объект альбома, на информацию о котором выполяется переход.
+  void openAlbumInfo(Album album) {
+    logger.i('Opening UserDetails for user with id:${album.id}');
+    final bundle = {'albumId': album.id};
+    actions.navigation.routeTo(
+      AppRoute((builder) => builder
+        ..route = Routes.albumDetails
+        ..navigationType = NavigationType.push
+        ..transitionType = TransitionType.rightSlide
+        ..bundle = bundle),
+    );
+  }
+
   ///
   _downloadUserPosts() {
     final request = UserPostsRequest((builder) => builder..userId = userId);
