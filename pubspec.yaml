@@ -25,7 +25,7 @@ dependencies:
   rxdart: ^0.26.0 # для архитектуры
 
   injectable: ^1.4.1 # DI генератор
-  get_it: ^7.0.0 # DI
+  get_it: ^7.0.0 # сервис-локатор (аля DI)
 
   uuid: ^3.0.5 # для изолятов и потоков
 
@@ -43,11 +43,12 @@ dependencies:
 
   shared_preferences: ^2.0.4 # кеширование данных
 
-  http: ^0.13.3 # http requests
+  http: ^0.13.3 # http запросы и ответы
 
   url_launcher: # для открытия програм по умолчанию
   flutter_map: ^0.13.1 # для использования карты
   carousel_slider: ^4.0.0 # слайдер для виджетов
+  cached_network_image: ^3.0.0 # отображение изображений из интеренета с кэшированием
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'package:azorin_test/core/core.dart';
+import 'package:azorin_test/features/album_details/domain/album_details_reducer.dart';
 import 'package:azorin_test/features/albums_list_screen/domain/albums_list_reducer.dart';
 import 'package:azorin_test/features/post_details/domain/post_details_reducer.dart';
 import 'package:azorin_test/features/posts_list_screen/domain/posts_list_reducer.dart';
@@ -12,6 +13,7 @@ final reducerBuilder = ReducerBuilder<AppState, AppStateBuilder>()
   ..combineNested(createUsersReducer())
   ..combineNested(createUserDetailsReducer())
   ..combineNested(createPostDetailsReducer())
+  ..combineNested(createAlbumDetailsReducer())
   ..combineNested(createPostsListReducer())
   ..combineNested(createAlbumsListReducer());
 /// Создание посдиски всех обработчкиов десвтий в приложении.

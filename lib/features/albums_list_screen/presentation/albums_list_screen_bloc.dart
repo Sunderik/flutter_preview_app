@@ -24,7 +24,6 @@ class AlbumsListScreenBloc extends BaseBloc {
   /// Подписка на значение поля [AlbumsListScreenState.usersListScreenStatus].
   StreamSubscription<ScreenStatusEnum?>? _albumsListScreenStatusSubscription;
 
-
   @override
   void init() {
     super.init();
@@ -50,18 +49,19 @@ class AlbumsListScreenBloc extends BaseBloc {
     _albumsListScreenStatusSubscription?.cancel();
   }
 
-
-  /// Переход на окно "Информацию о пользователе".
+  /// Переход на окно " ".
   ///
-  /// [album] - объект поста, на информацию о котором выполяется переход.
+  /// [album] - объект альбома, на информацию о котором выполяется переход.
   void openAlbumInfo(Album album) {
-    // logger.i('Opening UserDetails for user with id:${user.id}');
-    // final bundle = {'userId': user.id};
-    // actions.navigation.routeTo(
-    //   AppRoute((builder) => builder
-    //     ..route = Routes.userDetails
-    //     ..bundle = bundle),
-    // );
+    logger.i('Opening UserDetails for user with id:${album.id}');
+    final bundle = {'albumId': album.id};
+    actions.navigation.routeTo(
+      AppRoute((builder) => builder
+        ..route = Routes.albumDetails
+        ..navigationType = NavigationType.push
+        ..transitionType = TransitionType.rightSlide
+        ..bundle = bundle),
+    );
   }
 
   /// Отправить в контроллер команды обновленых участников проекта.

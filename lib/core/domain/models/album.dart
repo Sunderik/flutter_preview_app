@@ -1,3 +1,5 @@
+import 'package:azorin_test/core/core.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:azorin_test/core/domain/serializers/serializers.dart';
@@ -14,6 +16,9 @@ abstract class Album implements Built<Album, AlbumBuilder> {
 
   /// Идентификатор названия альбома.
   String? get title;
+
+  /// Фотографии альбома.
+  BuiltList<AlbumPhoto>? get photos;
 
   Album._();
 

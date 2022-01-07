@@ -1,3 +1,4 @@
+import 'package:azorin_test/features/album_details/domain/actions/album_details_actions.dart';
 import 'package:azorin_test/features/albums_list_screen/domain/actions/albums_list_actions.dart';
 import 'package:azorin_test/features/post_details/domain/actions/post_details_actions.dart';
 import 'package:built_redux/built_redux.dart';
@@ -40,8 +41,11 @@ abstract class AppActions extends ReduxActions {
   /// Действия с стейтом экрана постов пользователя.
   PostsListScreenActions get postsScreen;
 
-  /// Действия с стейтом экрана постов пользователя.
+  /// Действия с стейтом экрана поста пользователя.
   PostDetailsActions get postDetailsScreen;
+
+  /// Действия с стейтом экрана альбома пользователя.
+  AlbumDetailsActions get albumDetailsScreen;
 
   /// Действия с стейтом экрана альбомов пользователя.
   AlbumsListScreenActions get albumsScreen;
